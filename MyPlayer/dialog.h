@@ -1,0 +1,38 @@
+#ifndef DIALOG_H
+#define DIALOG_H
+
+#include <QDialog>
+#include<QMediaPlayer>
+#include<QDebug>
+namespace Ui {
+class Dialog;
+}
+
+class Dialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Dialog(QWidget *parent = 0);
+    ~Dialog();
+
+private slots:
+    void on_sliderProgress_sliderMoved(int position);
+
+    void on_sliderVolume_sliderMoved(int position);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_durationChanged(quint64 position);
+
+     void on_positionChanged(quint64 position);
+
+private:
+    Ui::Dialog *ui;
+
+    QMediaPlayer* player;
+};
+
+#endif // DIALOG_H
